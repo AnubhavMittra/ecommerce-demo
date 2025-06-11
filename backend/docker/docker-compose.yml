@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  mariadb:
+    image: mariadb:11.4 
+    container_name: ecom-db
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: ecomdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - '3307:3306'
+    volumes:
+      - ecom_db_data:/var/lib/mysql
+    
+
+volumes:
+  ecom_db_data:
